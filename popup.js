@@ -80,3 +80,14 @@ function generatePositiveResponse(senderName, receiverName) {
 function generateNegativeResponse(senderName, receiverName) {
   return `Subject: Re: Inquiry\n\nHi ${senderName},\n\nThank you for your email. I appreciate you reaching out.\n\nUnfortunately, I'm fully booked next week and won't be able to connect.  I'd be happy to explore this further at a later time. Perhaps we could schedule a brief call in two weeks?\n\nRegards,\n${receiverName}`;
 }
+
+function generateProposeNewTimeResponse(senderName, receiverName) {
+
+  const now = new Date();
+
+  const twoWeeksFromNow = new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000); 
+
+  const formattedDate = twoWeeksFromNow.toLocaleDateString();
+
+  return `Subject: Re: Inquiry\n\nHi ${senderName},\n\nThank you for your email. I'm interested in discussing [topic] further, but unfortunately, I'm not available next week.\n\nWould you be free to chat sometime during the week of ${formattedDate} instead?\n\nPlease let me know your availability.\n\nBest regards,\n${receiverName}`;
+}
