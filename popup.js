@@ -64,13 +64,14 @@ negResBtn.addEventListener('click', () => {
 
 function generateRandomEmail(senderName, receiverName, dateTime) {
   const randomString = Math.random().toString(36).substring(2, 15);
-  return `hi from ${senderName} ${randomString} to ${receiverName} ${dateTime}`;
+  const formattedDateTime = new Date(dateTime).toLocaleString(); // Format date/time
+  return `Subject: Inquiry\n\nHi ${receiverName},\n\nThis is ${senderName} writing to you.  I'm reaching out regarding [briefly mention the topic].\n\nPlease let me know if you're available for a quick chat sometime next week.\n\nBest regards,\n${senderName}\n${formattedDateTime}`;
 }
 
 function generatePositiveResponse(senderName, receiverName) {
-  return `Hi ${senderName}, I'm glad to hear from you. Let's meet at ${receiverName}`;
+  return `Subject: Re: Inquiry\n\nHi ${senderName},\n\nThank you for your email. I'd be happy to discuss [topic].  Next week works well for me.\n\nWhat time would be good for you?\n\nBest,\n${receiverName}`;
 }
 
 function generateNegativeResponse(senderName, receiverName) {
-  return `Hi ${senderName}, I'm sorry but I'm busy. Let's meet another time.`;
+  return `Subject: Re: Inquiry\n\nHi ${senderName},\n\nThank you for your email. I appreciate you reaching out.\n\nUnfortunately, I'm fully booked next week and won't be able to connect.  I'd be happy to explore this further at a later time. Perhaps we could schedule a brief call in two weeks?\n\nRegards,\n${receiverName}`;
 }
