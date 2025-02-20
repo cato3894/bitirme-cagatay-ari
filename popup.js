@@ -5,9 +5,14 @@ const emailList = document.getElementById('emailList');
 
 const senderName = document.getElementById('senderName').value;
 const receiverName = document.getElementById('receiverName').value;
-const dateTime = document.getElementById('dateTime').value; // Get the value!
+const dateTimePicker = document.getElementById('dateTime');
+const dateTime = dateTimePicker.value; // Get the value!
 
-
+dateTimePicker.oninput = function (event) {
+  event.preventDefault();
+  dateTimePicker.value = event.target.value;
+  dateTimePicker.blur();
+}
 
 generateBtn.addEventListener('click', () => {
 
